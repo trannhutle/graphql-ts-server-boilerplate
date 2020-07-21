@@ -1,0 +1,51 @@
+{
+  "name": "graphql-ts-server-boilerplate",
+  "version": "0.0.1",
+  "description": "Awesome project developed with TypeORM.",
+  "devDependencies": {
+    "nodemon": "^2.0.4",
+    "ts-node": "8.10.2",
+    "typescript": "3.9.7"
+  },
+  "dependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/jest": "^26.0.5",
+    "@types/node": "^14.0.23",
+    "@types/uuid": "^8.0.0",
+    "bcryptjs": "^2.4.3",
+    "graphql-import": "^1.0.2",
+    "graphql-request": "1.8.2",
+    "graphql-tools": "^6.0.14",
+    "graphql-yoga": "^1.18.3",
+    "jest": "^26.1.0",
+    "pg": "^8.3.0",
+    "reflect-metadata": "^0.1.13",
+    "start-server-and-test": "^1.11.2",
+    "ts-jest": "^26.1.3",
+    "tslint": "^6.1.2",
+    "tslint-config-prettier": "^1.18.0",
+    "typeorm": "0.2.25",
+    "uuid": "^8.2.0"
+  },
+  "scripts": {
+    "start": "NODE_ENV=development nodemon --exec ts-node --files src/index.ts",
+    "test-server": "NODE_ENV=test ts-node --files src/index.ts",
+    "test": "NODE_ENV=test jest --forceExit",
+    "gen-schema-types": "gql2ts src/schema.graphql -o src/types/schema.d.ts",
+    "ci": "start-server-and-test test-server http://localhost:4000 test"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  }
+}
